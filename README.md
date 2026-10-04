@@ -1,44 +1,33 @@
-# cars-2025-analysis
+# 2025 Automotive Market: EDA & Feature Engineering
 
-# 2025 Automotive Market Data Insights & Visual Analysis
+EDA on a 1,218-vehicle 2025 dataset: market concentration, electrification mix, performance baselines, and outlier analysis across manufacturers.
 
-## 📊 Business Value & Project Overview
-In a rapidly shifting automotive industry, understanding product positioning, engineering baselines, and powertrain electrification transitions is crucial for automotive manufacturers, dealership networks, and market analysts. 
+## Headline findings
 
-This project delivers a comprehensive Exploratory Data Analysis (EDA) on a 1,218-vehicle dataset representing the 2025 automotive landscape. By bridging raw performance metrics with market segmentation data, this analysis uncovers how manufacturers differentiate their portfolios and where the industry stands on its evolutionary curve.
+- **Market volume is concentrated.** Nissan (149 models), Volkswagen (109), and Porsche (96) lead model availability — distinct high-volume-consumer vs. premium-sports strategies.
+- **Petrol still dominates.** 71.5% of the fleet (871 vehicles) runs on petrol; Electric (97) and Hybrid (79) hold a real but minority share.
+- **Performance baseline:** median vehicle makes ~255 HP (mean 307 HP, skewed by outliers), 0–100 km/h in 7.5s, top speed 216 km/h.
+- **Outliers stretch the ceiling.** Hypercars reach up to 2,488 HP and 16,100cc — the right-skewed distribution means the mean overstates a "typical" car.
 
----
-
-## 🔍 What I Found (Key Insights)
-* **Market Volume Drivers:** The dataset is highly concentrated among major mainstream and high-performance manufacturers. Model availability is led by **Nissan** (149 models), **Volkswagen** (109 models), and **Porsche** (96 models), showcasing distinct strategies between high-volume consumer segments and premium sports segments.
-* **The State of Electrification:** Despite global clean-energy shifts, traditional internal combustion engines remain the clear market baseline in this dataset, with **Petrol** accounting for **71.5%** (871 vehicles). However, alternative powertrains have established a critical minority presence, comprising **97 Electric** and **79 Hybrid** models.
-* **Performance Baselines:** The typical "average" 2025 vehicle in this fleet generates approximately **307 HP**, achieves a 0–100 km/h acceleration time of **7.5 seconds**, and reaches a top speed of **216 km/h**.
-* **The Impact of Extreme Outliers:** While rare, high-end mechanical outliers define the maximum limits of current automotive engineering. The distribution is heavily right-skewed; while the median sits comfortably at **255 HP**, hypercars stretch the absolute boundaries up to a staggering **2,488 HP** and engine capacities up to **16,100 CC**.
-
----
-
-## 📈 Featured Visualization
+## Featured visualization
 
 ![0-100km/h Acceleration by Fuel Type](acceleration_chart.png)
 
-*Figure 1: 0-100km/h Acceleration by Fuel Type. This visualization highlights the performance variance across different powertrains, demonstrating how alternative energy vehicles stack up against traditional combustion engines in off-the-line speed.*
+0–100 km/h acceleration spread by fuel type, showing how electric and petrol powertrains compare off the line.
 
----
+## Stack
 
-## 🛠️ Tech Stack
-This project leverages the standard Python data science ecosystem to extract, clean, and visualize data:
-* **Data Manipulation:** `pandas`, `numpy`
-* **Data Visualization:** `matplotlib`, `seaborn`
+- **Python** · pandas, numpy for cleaning and feature extraction (regex-based parsing of mixed-format engine/speed/price fields)
+- **matplotlib, seaborn** for visualization
 
----
+## Reproducing the analysis
 
-## 🚀 How to View the Project
-1. Download the `cars-2025-data-insights-and-visual-analysis.ipynb` file from this repository.
-2. Upload it to [Kaggle](https://www.kaggle.com/) or [Google Colab](https://colab.research.google.com/) to run the cells and view the live code.
+1. Download the [Cars Datasets 2025](https://www.kaggle.com/datasets/abdulmalik1518/cars-datasets-2025) CSV from Kaggle (free, just needs a Kaggle account).
+2. Either:
+   - **Run on Kaggle directly** — upload `cars-2025-data-insights-and-visual-analysis.ipynb` as a new notebook on the dataset page; the data path is already set to Kaggle's default input mount.
+   - **Run locally** — place `Cars Datasets 2025.csv` in a `data/` folder at the project root, change the `pd.read_csv(...)` path in the first cell to `data/Cars Datasets 2025.csv`, then `pip install -r requirements.txt` and run the notebook top-to-bottom.
 
----
+## Next steps
 
-## 🔮 Next Steps & Future Work
-To build on these foundations, future iterations of this analysis will focus on:
-1. **Predictive Modeling:** Implementing machine learning regression models (e.g., Random Forest, XGBoost) to accurately predict vehicle top speeds and 0–100 km/h times based on structural dimensions and powertrain configurations.
-2. **Historical Trend Analysis:** Integrating historical performance data from 2020–2024 to map a five-year time-series trajectory of accelerating EV adoption rates and shifting performance standards.
+- Predictive modeling (Random Forest / XGBoost) for top speed and 0–100 km/h from structural and powertrain features.
+- Historical trend analysis (2020–2024) to track EV adoption and performance shifts over time.
